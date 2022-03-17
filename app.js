@@ -15,12 +15,28 @@ function generateRandomColor() {
   return color;
 }
 
-let posX = Math.floor(Math.random() * 1000); //(window.innerWidth));
-let posY = Math.floor(Math.random() * 500); //(window.innerHeight));
-// const done = (length) => (image.innerText = `${length}`);
+function getRandomPosition(element) {
+  var x = document.body.offsetHeight - element.clientHeight;
+  var y = document.body.offsetWidth - element.clientWidth;
+  var randomX = Math.floor(Math.random() * x);
+  var randomY = Math.floor(Math.random() * y);
+  return [randomX, randomY];
+}
 
-function creatNewDiv() {
+function creatNewDiv(num) {
   let newDiv = document.createElement("div");
+  const image = document.createElement("img");
+  image.src =
+    "http://static.indigoimages.ca/2015/shop/orange-paint-splatter.png";
+  image.style.height = `${num}px`;
+  image.style.height = `${num}px`;
+  image.style.width = `${num}px`;
+  image.style.borderRadius = "50%";
+  image.style.position = "absolute";
+  let xy = getRandomPosition(image);
+  image.style.left = `${xy[0]}px`;
+  image.style.top = `${xy[1]}px`;
+  image.style.backgroundColor = generateRandomColor();
   document.body.appendChild(newDiv);
   newDiv.appendChild(image);
 }
@@ -36,33 +52,33 @@ const countdown = (num, callback) => {
     counter++;
     if (num % 2 === 0) {
       setTimeout(() => {
-        creatNewDiv();
+        creatNewDiv(num);
 
         // newDiv.appendChild.image
         // image.classList.add("splatter")
-        image.style.height = `${num}px`;
-        image.style.height = `${num}px`;
-        image.style.width = `${num}px`;
-        image.style.borderRadius = "50%";
-        image.style.position = "absolute";
-        image.style.left = `${posY}px`;
-        image.style.top = `${posX}px`;
-        image.style.backgroundColor = generateRandomColor();
+        // image.style.height = `${num}px`;
+        // image.style.height = `${num}px`;
+        // image.style.width = `${num}px`;
+        // image.style.borderRadius = "50%";
+        // image.style.position = "absolute";
+        // image.style.left = `${posY}px`;
+        // image.style.top = `${posX}px`;
+        // image.style.backgroundColor = generateRandomColor();
 
         countdown(num / 2, callback);
       }, 200);
     } else {
       setTimeout(() => {
-        creatNewDiv();
+        creatNewDiv(num);
         //THE DIVS NEED TO STAY INSTEAD OF BEING REPLACED EACH TIME WORK ON THAT NEXT
         // newDiv.appendChild(image)
-        image.style.height = `${num}px`;
-        image.style.width = `${num}px`;
-        image.style.borderRadius = "50%";
-        image.style.position = "absolute";
-        image.style.left = `${posY}px`;
-        image.style.top = `${posX}px`;
-        image.style.backgroundColor = generateRandomColor();
+        // image.style.height = `${num}px`;
+        // image.style.width = `${num}px`;
+        // image.style.borderRadius = "50%";
+        // image.style.position = "absolute";
+        // image.style.left = `${posY}px`;
+        // image.style.top = `${posX}px`;
+        // image.style.backgroundColor = generateRandomColor();
 
         countdown(3 * num + 1, callback);
       }, 200);
