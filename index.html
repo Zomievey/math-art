@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Recursion</title>
+</head>
+
+
+<body>
+
+    <input id="input-box" type="text" autocomplete="off"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        placeholder="pick a random number">
+    <button onclick="getInputValue()" type="button" id="submit-button">Submit</button>
+
+    <!-- <img class="splatter" src="http://static.indigoimages.ca/2015/shop/orange-paint-splatter.png"> -->
+
+    <script src="app.js"></script>
+</body>
+
+</html>
